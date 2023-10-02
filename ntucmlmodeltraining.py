@@ -7,34 +7,26 @@ Original file is located at
     https://colab.research.google.com/drive/1CzXoOdBco1lvJLQTkNWH_eP-AuufOsbF
 """
 
-#!pip install scikit-learn seaborn xlsxwriter openpyxl numpy pandas matplotlib plotly scipy surprise xlrd
+import streamlit as st
+import pandas as pd
+from surprise import Dataset, Reader, KNNBasic
+import numpy as np
+import seaborn as sns
+import matplotlib.pyplot as plt
 
-import sys
+# Install the packages listed in requirements.txt
+requirements_file_path = "requirements.txt"
+with open(requirements_file_path, "r") as f:
+    requirements = f.read().splitlines()
+for requirement in requirements:
+    st.write(f"Installing {requirement}...")
+    st.run(f"pip install {requirement}")
 
-# Install required packages if they are not already installed
-if "scikit-learn" not in sys.modules:
-    !pip install scikit-learn
-if "seaborn" not in sys.modules:
-    !pip install seaborn
-if "xlsxwriter" not in sys.modules:
-    !pip install xlsxwriter
-if "openpyxl" not in sys.modules:
-    !pip install openpyxl
-if "numpy" not in sys.modules:
-    !pip install numpy
-if "pandas" not in sys.modules:
-    !pip install pandas
-if "matplotlib" not in sys.modules:
-    !pip install matplotlib
-if "plotly" not in sys.modules:
-    !pip install plotly
-if "scipy" not in sys.modules:
-    !pip install scipy
-if "surprise" not in sys.modules:
-    !pip install surprise
-if "xlrd" not in sys.modules:
-    !pip install xlrd
+# Upload data from an Excel file
+file_path = r"C:\Users\adminnus\Desktop\NTUCprototype\ntucMLdata.xlsx"
+data = pd.read_excel(file_path)
 
+# ... rest of the Streamlit app code ...
 
 """The modules you may want to install depend on the specific requirements of your project and the tasks you want to perform. Since you are working on a recommender system and data analysis, here are some common Python modules that you might find useful:
 
@@ -248,3 +240,9 @@ for user, recommendations in recommendation_lists.items():
 
 # Generate user-item heatmap
 generate_user_item_heatmap(predictions_df.values, users, items)
+
+
+# Display the recommendation lists
+st.header("Recommendation Lists")
+for user, recommendations in recommendation_lists.items():
+    st.write(f"User {user}: {recommendations}")
