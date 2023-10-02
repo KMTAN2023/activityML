@@ -7,8 +7,33 @@ Original file is located at
     https://colab.research.google.com/drive/1CzXoOdBco1lvJLQTkNWH_eP-AuufOsbF
 """
 
-!pip install scikit-learn seaborn xlsxwriter openpyxl numpy pandas matplotlib plotly scipy surprise xlrd
+#!pip install scikit-learn seaborn xlsxwriter openpyxl numpy pandas matplotlib plotly scipy surprise xlrd
 
+import sys
+
+# Install required packages if they are not already installed
+if "scikit-learn" not in sys.modules:
+    !pip install scikit-learn
+if "seaborn" not in sys.modules:
+    !pip install seaborn
+if "xlsxwriter" not in sys.modules:
+    !pip install xlsxwriter
+if "openpyxl" not in sys.modules:
+    !pip install openpyxl
+if "numpy" not in sys.modules:
+    !pip install numpy
+if "pandas" not in sys.modules:
+    !pip install pandas
+if "matplotlib" not in sys.modules:
+    !pip install matplotlib
+if "plotly" not in sys.modules:
+    !pip install plotly
+if "scipy" not in sys.modules:
+    !pip install scipy
+if "surprise" not in sys.modules:
+    !pip install surprise
+if "xlrd" not in sys.modules:
+    !pip install xlrd
 
 
 """The modules you may want to install depend on the specific requirements of your project and the tasks you want to perform. Since you are working on a recommender system and data analysis, here are some common Python modules that you might find useful:
